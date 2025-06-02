@@ -14,7 +14,7 @@ Export these environment variables,
 DB_URL=jdbc:postgresql://localhost:5432/postgres?user=postgres&password=pass
 
 # jenkins home location
-JENKINS_HOME=/Users/gbhat/CBNotes/sandbox/traditional-ha-aa/controller/data/jhome
+JENKINS_HOME=/Users/gbhat/sandbox/controller/data/jhome
 
 # interval to scrape the new jobs or new builds and write it to postgres
 POLL_INTERVAL_SECONDS=10
