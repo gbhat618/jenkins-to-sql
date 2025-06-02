@@ -1,5 +1,7 @@
 # README
 
+![demo.png](docs/images/demo.png)
+
 Export these environment variables,
 
 ```bash
