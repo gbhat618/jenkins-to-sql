@@ -2,6 +2,11 @@
 
 ![demo.png](docs/images/demo.png)
 
+Docker image
+```bash
+docker pull gbhat618/jenkins-to-sql:amd64
+```
+
 Export these environment variables,
 
 ```bash
