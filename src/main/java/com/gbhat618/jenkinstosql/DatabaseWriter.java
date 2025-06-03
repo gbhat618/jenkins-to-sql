@@ -60,9 +60,10 @@ public class DatabaseWriter {
     public List<Integer> getNonTerminalBuilds(String jobName) {
         List<Integer> builds = new ArrayList<>();
         try (Connection conn = DriverManager.getConnection(url);
+            /* Various possible states are, SUCCESS, UNSTABLE, FAILURE, NOT_BUILT, ABORTED */
             PreparedStatement ps = conn.prepareStatement(
                 "SELECT build_number FROM builds WHERE job_name = ? AND status NOT IN ('SUCCESS', 'FAILURE', "
-                + "'ABORTED') OR status is NULL")) {
+                + "'ABORTED', 'UNSTABLE', 'NOT_BUILT') OR status is NULL")) {
             ps.setString(1, jobName);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

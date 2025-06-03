@@ -129,6 +129,9 @@ public class JenkinsScanner {
                                   : 0;
 
             String result = getDirectChild(root, "result");  // Only top-level result tag
+            if (result == null || result.isBlank()) {
+                result = "RUNNING";
+            }
 
             Timestamp start = new Timestamp(startMillis);
             Timestamp end = new Timestamp(startMillis + durationMillis);
