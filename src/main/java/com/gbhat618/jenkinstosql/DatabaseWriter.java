@@ -62,8 +62,8 @@ public class DatabaseWriter {
         try (Connection conn = DriverManager.getConnection(url);
             /* Various possible states are, SUCCESS, UNSTABLE, FAILURE, NOT_BUILT, ABORTED */
             PreparedStatement ps = conn.prepareStatement(
-                "SELECT build_number FROM builds WHERE job_name = ? AND status NOT IN ('SUCCESS', 'FAILURE', "
-                + "'ABORTED', 'UNSTABLE', 'NOT_BUILT') OR status is NULL")) {
+                "SELECT build_number FROM builds WHERE job_name = ? AND (status NOT IN ('SUCCESS', 'FAILURE', "
+                + "'ABORTED', 'UNSTABLE', 'NOT_BUILT') OR status is NULL)")) {
             ps.setString(1, jobName);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
